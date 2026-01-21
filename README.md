@@ -1,42 +1,114 @@
-# Skillfull - Revenue Cycle Management Skills
+# Skillfull
 
-A comprehensive knowledge base for US healthcare Revenue Cycle Management (RCM) operations, designed to assist medical billing professionals, healthcare administrators, and AI systems in navigating the complexities of healthcare reimbursement.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skills-purple)](https://claude.ai/claude-code)
+[![MCP Enabled](https://img.shields.io/badge/MCP-Enabled-green)](https://modelcontextprotocol.io)
+[![Healthcare](https://img.shields.io/badge/US%20Healthcare-RCM-red)](skills/)
 
-## Overview
+**Revenue Cycle Management Skills for Claude Code**
 
-This repository contains detailed skill guides covering all 10 components of the Revenue Cycle Management process, aligned with US healthcare regulations, CMS guidelines, and industry best practices.
+A comprehensive collection of Claude Code skills for US healthcare billing, coding, and revenue cycle operations. Integrates with live healthcare data APIs via Model Context Protocol (MCP).
 
-## RCM Components
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/skillfull.git
+
+# Skills are auto-detected by Claude Code from .claude/skills/
+```
+
+**Try a skill:**
+```
+/icd10-lookup type 2 diabetes
+/npi-verify 1234567893
+/coverage-check continuous glucose monitoring
+/denial-management CO-16
+```
+
+## Features
+
+- **Interactive Skills**: Real-time lookups using live healthcare APIs
+- **Reference Skills**: Expert guidance for RCM workflows
+- **MCP Integration**: Connected to ICD-10, NPI, and CMS databases
+- **Progressive Disclosure**: Efficient context usage with supporting files
+- **HIPAA Aligned**: Best practices for compliant billing operations
+
+## Skills
+
+### Interactive (MCP-Powered)
+
+| Command | Description | Data Source |
+|---------|-------------|-------------|
+| `/icd10-lookup` | Search/validate ICD-10-CM/PCS codes | ICD-10 2026 |
+| `/npi-verify` | Verify provider credentials | NPPES Registry |
+| `/coverage-check` | Research Medicare coverage policies | CMS LCD/NCD |
+| `/claim-scrub` | Pre-submission claim validation | Multiple APIs |
+
+### Reference
+
+| Command | Description |
+|---------|-------------|
+| `/medical-coding` | ICD-10, CPT, HCPCS coding guidance |
+| `/denial-management` | Denial analysis and appeal templates |
+| `/eligibility-verification` | Insurance verification workflows |
+| `/ar-analysis` | A/R aging and collection strategies |
+
+## RCM Knowledge Base
+
+The `skills/` directory contains detailed documentation for all 10 RCM components:
 
 | Component | Description |
 |-----------|-------------|
-| [Patient Registration & Scheduling](skills/patient-registration-scheduling.md) | Demographics collection, appointment management, pre-registration workflows |
-| [Insurance Eligibility & Verification](skills/insurance-eligibility-verification.md) | Coverage verification, benefits investigation, prior authorization |
-| [Charge Capture](skills/charge-capture.md) | Clinical documentation, charge entry, revenue integrity |
-| [Medical Coding](skills/medical-coding.md) | ICD-10-CM/PCS, CPT, HCPCS coding with NCCI compliance |
-| [Claim Submission](skills/claim-submission.md) | CMS-1500, UB-04, EDI 837 transactions, clearinghouse operations |
-| [Payment Posting](skills/payment-posting.md) | ERA/835 processing, EOB interpretation, adjustment codes |
-| [Denial Management](skills/denial-management.md) | Denial analysis, appeals process, root cause prevention |
-| [Accounts Receivable Follow-up](skills/accounts-receivable-followup.md) | A/R aging, payer follow-up, claim status management |
-| [Patient Collections](skills/patient-collections.md) | Patient responsibility, payment plans, financial assistance |
-| [RCM Reporting & Analytics](skills/rcm-reporting-analytics.md) | KPIs, benchmarks, dashboard development |
-
-## Key Features
-
-- **US Healthcare Focused**: Medicare, Medicaid, and commercial payer requirements
-- **Regulatory Compliance**: HIPAA, False Claims Act, No Surprises Act considerations
-- **Industry Standards**: CARC/RARC codes, NCCI edits, timely filing requirements
-- **KPIs & Benchmarks**: Industry-standard metrics and targets
-- **Practical Workflows**: Step-by-step processes for each RCM function
+| [Patient Registration](skills/patient-registration-scheduling.md) | Demographics, scheduling, pre-registration |
+| [Eligibility Verification](skills/insurance-eligibility-verification.md) | Coverage, benefits, prior authorization |
+| [Charge Capture](skills/charge-capture.md) | Clinical documentation, charge entry |
+| [Medical Coding](skills/medical-coding.md) | ICD-10, CPT, HCPCS, NCCI compliance |
+| [Claim Submission](skills/claim-submission.md) | CMS-1500, UB-04, EDI 837 |
+| [Payment Posting](skills/payment-posting.md) | ERA/835, EOB, adjustments |
+| [Denial Management](skills/denial-management.md) | Analysis, appeals, prevention |
+| [A/R Follow-up](skills/accounts-receivable-followup.md) | Aging, claim status, worklists |
+| [Patient Collections](skills/patient-collections.md) | Statements, payment plans, financial assistance |
+| [RCM Analytics](skills/rcm-reporting-analytics.md) | KPIs, benchmarks, dashboards |
 
 ## MCP Integration
 
-This project includes Model Context Protocol (MCP) configurations for AI-assisted medical billing:
+This project connects to live healthcare data sources:
 
-- **mimilabs**: Access to 50+ US government healthcare datasets (NPPES, Medicare, FDA, CDC)
-- **icd10-codes**: ICD-10-CM/PCS code lookup and billable status verification
-- **npi-registry**: National Provider Identifier (NPI) search
-- **cms-coverage**: Medicare Local and National Coverage Determinations (LCD/NCD)
+```json
+{
+  "mcpServers": {
+    "icd10-codes": "ICD-10-CM/PCS code lookup and validation",
+    "npi-registry": "National Provider Identifier search",
+    "cms-coverage": "Medicare NCDs and LCDs",
+    "mimilabs": "50+ CMS/CDC/FDA datasets"
+  }
+}
+```
+
+See [.mcp.json](.mcp.json) for configuration.
+
+## Project Structure
+
+```
+skillfull/
+├── .claude/
+│   └── skills/              # Claude Code skills (SKILL.md format)
+│       ├── icd10-lookup/    # Interactive ICD-10 lookup
+│       ├── npi-verify/      # Provider verification
+│       ├── coverage-check/  # Medicare coverage research
+│       ├── claim-scrub/     # Pre-submission validation
+│       ├── medical-coding/  # Coding guidance
+│       ├── denial-management/  # Denials and appeals
+│       ├── eligibility-verification/
+│       ├── ar-analysis/
+│       └── SKILLS.md        # Skills index
+├── skills/                  # RCM reference documentation
+├── .mcp.json               # MCP server configuration
+├── CONTRIBUTING.md         # Contribution guidelines
+├── LICENSE                 # MIT License
+└── README.md
+```
 
 ## Target Audience
 
@@ -46,30 +118,42 @@ This project includes Model Context Protocol (MCP) configurations for AI-assiste
 - Practice Managers
 - Health Information Management (HIM) Professionals
 - Healthcare IT Developers
-- AI/ML Engineers building healthcare solutions
+- AI/ML Engineers
 
-## Certifications Reference
+## Certification Alignment
 
-These skills align with competencies required for:
+Content aligns with competencies for:
 
-- CPC (Certified Professional Coder) - AAPC
-- CCS (Certified Coding Specialist) - AHIMA
-- CRCR (Certified Revenue Cycle Representative) - HFMA
-- CPB (Certified Professional Biller) - AAPC
+| Certification | Organization |
+|--------------|--------------|
+| CPC (Certified Professional Coder) | AAPC |
+| CCS (Certified Coding Specialist) | AHIMA |
+| CRCR (Certified Revenue Cycle Representative) | HFMA |
+| CPB (Certified Professional Biller) | AAPC |
 
 ## Contributing
 
-Contributions are welcome! Please ensure any additions:
+We welcome contributions. See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
-1. Follow US healthcare regulations and guidelines
-2. Include references to official CMS or payer documentation
-3. Maintain consistency with existing skill format
-4. Are reviewed for accuracy by certified professionals
+- Skill format requirements
+- Healthcare accuracy guidelines
+- MCP integration patterns
+- Submission process
 
 ## Disclaimer
 
-This repository is for educational and reference purposes only. Always verify information against current CMS guidelines, payer policies, and applicable regulations. Healthcare billing rules change frequently - consult official sources for the most up-to-date requirements.
+This repository is for educational and reference purposes only. Always verify information against current CMS guidelines, payer policies, and applicable regulations. Healthcare billing rules change frequently.
+
+**This is NOT a substitute for:**
+- Official CMS/payer documentation
+- Professional medical coding certification
+- Legal or compliance advice
+- Clinical decision-making
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+[MIT License](LICENSE)
+
+---
+
+**Built for [Claude Code](https://claude.ai/claude-code)** | **Powered by [MCP](https://modelcontextprotocol.io)**
