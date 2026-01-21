@@ -3,17 +3,17 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skills-purple)](https://claude.ai/claude-code)
 [![MCP Enabled](https://img.shields.io/badge/MCP-Enabled-green)](https://modelcontextprotocol.io)
-[![Healthcare](https://img.shields.io/badge/US%20Healthcare-RCM-red)](skills/)
+[![Healthcare](https://img.shields.io/badge/US%20Healthcare-RCM-red)](.claude/skills/)
 
 **Revenue Cycle Management Skills for Claude Code**
 
-A comprehensive collection of Claude Code skills for US healthcare billing, coding, and revenue cycle operations. Integrates with live healthcare data APIs via Model Context Protocol (MCP).
+A comprehensive collection of 14 Claude Code skills covering the complete US healthcare revenue cycle. Integrates with live healthcare data APIs via Model Context Protocol (MCP).
 
 ## Quick Start
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/skillfull.git
+git clone https://github.com/DilawarShafiq/skillfull.git
 
 # Skills are auto-detected by Claude Code from .claude/skills/
 ```
@@ -28,11 +28,11 @@ git clone https://github.com/yourusername/skillfull.git
 
 ## Features
 
-- **Interactive Skills**: Real-time lookups using live healthcare APIs
-- **Reference Skills**: Expert guidance for RCM workflows
-- **MCP Integration**: Connected to ICD-10, NPI, and CMS databases
-- **Progressive Disclosure**: Efficient context usage with supporting files
-- **HIPAA Aligned**: Best practices for compliant billing operations
+- **14 RCM Skills**: Complete revenue cycle coverage
+- **MCP Integration**: Real-time healthcare API lookups
+- **SKILL.md Format**: Proper Claude Code skill structure
+- **Progressive Disclosure**: Reference docs load on-demand
+- **HIPAA Aligned**: Best practices for compliant billing
 
 ## Skills
 
@@ -45,35 +45,34 @@ git clone https://github.com/yourusername/skillfull.git
 | `/coverage-check` | Research Medicare coverage policies | CMS LCD/NCD |
 | `/claim-scrub` | Pre-submission claim validation | Multiple APIs |
 
-### Reference
+### Front-End RCM
+
+| Command | Description |
+|---------|-------------|
+| `/patient-registration` | Demographics, scheduling, pre-registration |
+| `/eligibility-verification` | Insurance verification, benefits, prior auth |
+
+### Mid-Cycle RCM
 
 | Command | Description |
 |---------|-------------|
 | `/medical-coding` | ICD-10, CPT, HCPCS coding guidance |
+| `/charge-capture` | Service documentation, revenue integrity |
+| `/claim-submission` | CMS-1500, UB-04, EDI 837 |
+
+### Back-End RCM
+
+| Command | Description |
+|---------|-------------|
+| `/payment-posting` | ERA/835, EOB, CARC/RARC codes |
 | `/denial-management` | Denial analysis and appeal templates |
-| `/eligibility-verification` | Insurance verification workflows |
 | `/ar-analysis` | A/R aging and collection strategies |
-
-## RCM Knowledge Base
-
-The `skills/` directory contains detailed documentation for all 10 RCM components:
-
-| Component | Description |
-|-----------|-------------|
-| [Patient Registration](skills/patient-registration-scheduling.md) | Demographics, scheduling, pre-registration |
-| [Eligibility Verification](skills/insurance-eligibility-verification.md) | Coverage, benefits, prior authorization |
-| [Charge Capture](skills/charge-capture.md) | Clinical documentation, charge entry |
-| [Medical Coding](skills/medical-coding.md) | ICD-10, CPT, HCPCS, NCCI compliance |
-| [Claim Submission](skills/claim-submission.md) | CMS-1500, UB-04, EDI 837 |
-| [Payment Posting](skills/payment-posting.md) | ERA/835, EOB, adjustments |
-| [Denial Management](skills/denial-management.md) | Analysis, appeals, prevention |
-| [A/R Follow-up](skills/accounts-receivable-followup.md) | Aging, claim status, worklists |
-| [Patient Collections](skills/patient-collections.md) | Statements, payment plans, financial assistance |
-| [RCM Analytics](skills/rcm-reporting-analytics.md) | KPIs, benchmarks, dashboards |
+| `/patient-collections` | Statements, payment plans, financial assistance |
+| `/rcm-analytics` | KPIs, dashboards, benchmarking |
 
 ## MCP Integration
 
-This project connects to live healthcare data sources:
+Connected to live healthcare data sources:
 
 ```json
 {
@@ -86,27 +85,30 @@ This project connects to live healthcare data sources:
 }
 ```
 
-See [.mcp.json](.mcp.json) for configuration.
-
 ## Project Structure
 
 ```
 skillfull/
 ├── .claude/
-│   └── skills/              # Claude Code skills (SKILL.md format)
-│       ├── icd10-lookup/    # Interactive ICD-10 lookup
-│       ├── npi-verify/      # Provider verification
-│       ├── coverage-check/  # Medicare coverage research
-│       ├── claim-scrub/     # Pre-submission validation
-│       ├── medical-coding/  # Coding guidance
-│       ├── denial-management/  # Denials and appeals
+│   └── skills/                    # All 14 Claude Code skills
+│       ├── icd10-lookup/          # Interactive ICD-10 lookup
+│       ├── npi-verify/            # Provider verification
+│       ├── coverage-check/        # Medicare coverage research
+│       ├── claim-scrub/           # Pre-submission validation
+│       ├── patient-registration/  # Demographics & scheduling
 │       ├── eligibility-verification/
-│       ├── ar-analysis/
-│       └── SKILLS.md        # Skills index
-├── skills/                  # RCM reference documentation
-├── .mcp.json               # MCP server configuration
-├── CONTRIBUTING.md         # Contribution guidelines
-├── LICENSE                 # MIT License
+│       ├── medical-coding/        # Coding guidance + reference
+│       ├── charge-capture/        # Revenue integrity
+│       ├── claim-submission/      # EDI 837, CMS-1500, UB-04
+│       ├── payment-posting/       # ERA/835, adjustments
+│       ├── denial-management/     # Appeals + templates
+│       ├── ar-analysis/           # A/R management
+│       ├── patient-collections/   # Patient responsibility
+│       ├── rcm-analytics/         # KPIs & reporting
+│       └── SKILLS.md              # Skills index
+├── .mcp.json                      # MCP server configuration
+├── CONTRIBUTING.md                # Contribution guidelines
+├── LICENSE                        # MIT License
 └── README.md
 ```
 
@@ -118,7 +120,6 @@ skillfull/
 - Practice Managers
 - Health Information Management (HIM) Professionals
 - Healthcare IT Developers
-- AI/ML Engineers
 
 ## Certification Alignment
 
@@ -142,13 +143,12 @@ We welcome contributions. See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ## Disclaimer
 
-This repository is for educational and reference purposes only. Always verify information against current CMS guidelines, payer policies, and applicable regulations. Healthcare billing rules change frequently.
+This repository is for educational and reference purposes only. Always verify information against current CMS guidelines, payer policies, and applicable regulations.
 
 **This is NOT a substitute for:**
 - Official CMS/payer documentation
 - Professional medical coding certification
 - Legal or compliance advice
-- Clinical decision-making
 
 ## License
 
