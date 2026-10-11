@@ -1,3 +1,5 @@
+![Skillfull: the US revenue cycle as 16 Claude Code skills](assets/banner.png)
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/%E2%9A%95-SKILLFULL-00d4aa?style=for-the-badge&labelColor=0d1117&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzAwZDRhYSI+PHBhdGggZD0iTTEyIDJMNCA3djEwbDggNSA4LTVWN3oiLz48L3N2Zz4=">
